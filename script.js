@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function() {
         newTask.innerHTML = `
             <div class="d-flex justify-content-between align-items-center">
                 <a href="#" class="text-decoration-none text-body task-link">
-                    <p class="mb-0 taskText">${taskText}</p>
+                    <p class="mb-0 taskText text-break p-2">${taskText}</p>
                 </a>
                 <div>
                     <button type="button" class="btn btn-outline-danger btnDeleteTask">
