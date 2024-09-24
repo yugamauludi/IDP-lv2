@@ -9,10 +9,16 @@ document.addEventListener("DOMContentLoaded", function() {
         const allTasks = document.querySelectorAll("#todoList li");
         const unfinishedTasks = Array.from(allTasks).filter(task => !task.classList.contains("list-group-item-success"));
         unfinishedTask.textContent = `Unfinished Task: ${unfinishedTasks.length}`;
+        if(Array.from(allTasks).length > 0){
+            btnDeleteAll.style.visibility = "visible";
+        } else {
+            btnDeleteAll.style.visibility = "hidden";
+        }
         if (unfinishedTasks.length === 0 && allTasks.length > 0) {
             setTimeout(() => {
                 alert("Great! All your tasks are finished.");
             }, 50); 
+            unfinishedTask.textContent = "";
         }
     }
 
@@ -65,5 +71,7 @@ document.addEventListener("DOMContentLoaded", function() {
     btnDeleteAll.addEventListener("click", function() {
         todoList.innerHTML = "";
         updateTaskCount();
+        unfinishedTask.textContent = "";
+        btnDeleteAll.style.visibility = "hidden";
     });
 });
